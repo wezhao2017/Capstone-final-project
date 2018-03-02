@@ -1,0 +1,61 @@
+---
+title: "Predict the Next Word"
+author: "wezhao2017"
+date: "03-01-2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Introduction
+--------------
+
+This application is trying to predict the next possible word in the sentence. To type word on the text field and up to 4 possible next words will display in below the box. 
+This application was as an academic project for the Coursera Data Science Capstone. We used natural language proccessing models, n-grams model to produce the predictions.
+
+
+```{r}
+```
+
+## 
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(shiny)
+library(stringr)
+
+shinyUI(
+        fluidPage(
+                titlePanel("Predict the Next Word"),
+                sidebarLayout(
+                        sidebarPanel(
+                                helpText(""),
+                                hr(),
+                                textInput("inputText", "Enter a word to predict the next one",value = ""),
+                                hr(),
+                                helpText(strong("Synopsis"), 
+                                         hr(),
+                                         "This application try to predict the next possible word in a sentence.",
+                                         hr(),
+                                         "Type word(s) on the text box and up to 4 possible next words will display below."),
+                                hr()
+                                ),
+                        mainPanel(
+                                h3("Prediction Word(s) at below Box"),
+                                verbatimTextOutput("prediction"),
+                                 hr(),
+                                h3("You enter the word(s)"),
+                                strong(code(textOutput('sentence1'))),
+                                br(),
+                                hr()
+                                )
+                        )
+                )
+        )
+```
+
+## Thank You for Reviewing.
+
+The shiny application is available at:https://wezhao.shinyapps.io/CapstoneApp/
+
+The source codes (ui.R & server.R ) are available on GitHub repo at:https://github.com/wezhao2017/Capstone-final-project 
